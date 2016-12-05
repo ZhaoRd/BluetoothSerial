@@ -38,6 +38,7 @@ public class BluetoothSerial extends CordovaPlugin {
     private static final String WRITE = "write";
     private static final String AVAILABLE = "available";
     private static final String READ = "read";
+	private static final String READ_RAW_DATA = "readRawData";
     private static final String READ_UNTIL = "readUntil";
     private static final String SUBSCRIBE = "subscribe";
     private static final String UNSUBSCRIBE = "unsubscribe";
@@ -108,7 +109,12 @@ public class BluetoothSerial extends CordovaPlugin {
 
             listBondedDevices(callbackContext);
 
-        } else if (action.equals(CONNECT)) {
+        }else if(action.equals(READ_RAW_DATA)){
+			
+			//readRawDataService(callbackContext);
+			callbackContext.success(readRawData());
+		}
+		else if (action.equals(CONNECT)) {
 
             boolean secure = true;
             connect(args, secure, callbackContext);
@@ -287,6 +293,19 @@ public class BluetoothSerial extends CordovaPlugin {
         }
         callbackContext.success(deviceList);
     }
+	
+	private void readRawDataService(CallbackContext callbackContext) throws JSONException {
+        JSONArray deviceList = new JSONArray();
+       
+	   /*
+	    Set<BluetoothDevice> bondedDevices = bluetoothAdapter.getBondedDevices();
+
+        for (BluetoothDevice device : bondedDevices) {
+            deviceList.put(deviceToJSON(device));
+        }
+		*/
+        callbackContext.success(deviceList);
+    }
 
     private void discoverUnpairedDevices(final CallbackContext callbackContext) throws JSONException {
 
@@ -453,6 +472,11 @@ public class BluetoothSerial extends CordovaPlugin {
         buffer.delete(0, length);
         return data;
     }
+	
+	public byte[] readRawData(){
+		String data=this.read();
+		return data.getBytes();
+	}
 
     private String readUntil(String c) {
         String data = "";
