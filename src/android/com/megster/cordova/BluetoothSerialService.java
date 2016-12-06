@@ -450,7 +450,7 @@ public class BluetoothSerialService {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);
 					
-					byte[] toBuffer=Array.copyOf(buffer,bytes);
+					byte[] toBuffer=Arrays.copyOf(buffer,bytes);
 					
 					StringBuilder sb = new StringBuilder();
 					for (byte b : toBuffer) {
