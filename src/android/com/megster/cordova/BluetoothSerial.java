@@ -295,16 +295,15 @@ public class BluetoothSerial extends CordovaPlugin {
     }
 	
 	private void readRawDataService(CallbackContext callbackContext) throws JSONException {
+		
+		/*
+		String data=this.read();
+		byte[] bytes=data.getBytes();
+		
         JSONArray deviceList = new JSONArray();
        
-	   /*
-	    Set<BluetoothDevice> bondedDevices = bluetoothAdapter.getBondedDevices();
-
-        for (BluetoothDevice device : bondedDevices) {
-            deviceList.put(deviceToJSON(device));
-        }
-		*/
         callbackContext.success(deviceList);
+		*/
     }
 
     private void discoverUnpairedDevices(final CallbackContext callbackContext) throws JSONException {
@@ -473,9 +472,17 @@ public class BluetoothSerial extends CordovaPlugin {
         return data;
     }
 	
-	public byte[] readRawData(){
+	public String readRawData(){
+		String result="";
 		String data=this.read();
-		return data.getBytes();
+		byte[] bytes=data.getBytes();
+		
+		
+		for(int i=0;i<bytes.length;i++){
+			result+=bytes[i]+"#";
+		}
+		
+		return result;
 	}
 
     private String readUntil(String c) {
