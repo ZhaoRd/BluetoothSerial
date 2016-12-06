@@ -474,7 +474,9 @@ public class BluetoothSerial extends CordovaPlugin {
 	
 	public String readRawData(){
 		
-		String data=this.read();
+		int length = buffer.length();
+        String data = buffer.substring(0, length);
+        
 		byte[] bytes=data.getBytes();
 		
 		StringBuilder sb = new StringBuilder();
@@ -483,6 +485,7 @@ public class BluetoothSerial extends CordovaPlugin {
 			sb.append(bStr);
 		}
 		
+		buffer.delete(0, length);
 		return sb.toString();
 	}
 
