@@ -473,16 +473,17 @@ public class BluetoothSerial extends CordovaPlugin {
     }
 	
 	public String readRawData(){
-		String result="";
+		
 		String data=this.read();
 		byte[] bytes=data.getBytes();
 		
-		
-		for(int i=0;i<bytes.length;i++){
-			result+=bytes[i]+"#";
+		StringBuilder sb = new StringBuilder();
+		for (byte b : bytes) {
+			var bStr="0x"+String.format("%02X", b)+"#";
+			sb.append(bStr);
 		}
 		
-		return result;
+		return sb.toString();
 	}
 
     private String readUntil(String c) {
