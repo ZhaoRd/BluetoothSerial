@@ -479,7 +479,7 @@ public class BluetoothSerial extends CordovaPlugin {
 		
 		StringBuilder sb = new StringBuilder();
 		for (byte b : bytes) {
-			var bStr="0x"+String.format("%02X", b)+"#";
+			String bStr="0x"+String.format("%02X", b)+"#";
 			sb.append(bStr);
 		}
 		
