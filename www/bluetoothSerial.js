@@ -36,6 +36,11 @@ module.exports = {
     read: function (success, failure) {
         cordova.exec(success, failure, "BluetoothSerial", "read", []);
     },
+	
+	readRawData: function (success, failure) {
+        cordova.exec(success, failure, "BluetoothSerial", "readRawData", []);
+    },
+	
 
     // reads the data in the buffer up to and including the delimiter
     readUntil: function (delimiter, success, failure) {
