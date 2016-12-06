@@ -476,6 +476,12 @@ public class BluetoothSerial extends CordovaPlugin {
 		
 		int length = buffer.length();
         String data = buffer.substring(0, length);
+        buffer.delete(0, length);
+        return data;
+		
+		/*
+		int length = buffer.length();
+        String data = buffer.substring(0, length);
         
 		byte[] bytes=data.getBytes();
 		
@@ -487,6 +493,7 @@ public class BluetoothSerial extends CordovaPlugin {
 		
 		buffer.delete(0, length);
 		return sb.toString();
+		*/
 	}
 
     private String readUntil(String c) {

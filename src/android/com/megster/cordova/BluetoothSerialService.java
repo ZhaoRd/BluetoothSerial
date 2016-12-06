@@ -449,7 +449,16 @@ public class BluetoothSerialService {
                 try {
                     // Read from the InputStream
                     bytes = mmInStream.read(buffer);
-                    String data = new String(buffer, 0, bytes);
+					
+					byte[] toBuffer=Array.copyOf(buffer,bytes);
+					
+					StringBuilder sb = new StringBuilder();
+					for (byte b : toBuffer) {
+						String bStr="0x"+String.format("%02X", b)+"#";
+						sb.append(bStr);
+					}
+					String data=sb.toString();
+                    //String data = new String(toBuffer, 0, bytes);
 
                     // Send the new data String to the UI Activity
                     mHandler.obtainMessage(BluetoothSerial.MESSAGE_READ, data).sendToTarget();
