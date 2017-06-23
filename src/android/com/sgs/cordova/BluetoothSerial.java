@@ -1,4 +1,4 @@
-package com.megster.cordova;
+package com.sgs.cordova;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

@@ -1,4 +1,4 @@
-package com.megster.cordova;
+package com.sgs.cordova;
 
 import java.io.IOException;
 import java.io.InputStream;
