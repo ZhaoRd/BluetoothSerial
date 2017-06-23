@@ -13,7 +13,7 @@
     <issue>https://github.com/ZhaoRd/BluetoothSerial.git</issue>
 
     <js-module src="www/bluetoothSerial.js" name="bluetoothSerial">
-        <clobbers target="window.bluetoothSerial" />
+        <clobbers target="window.phxTool" />
     </js-module>
 
     <platform name="android">
