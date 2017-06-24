@@ -2,49 +2,49 @@
 module.exports = {
 
     connect: function (macAddress, success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "connect", [macAddress]);
+        cordova.exec(success, failure, "PhxTool", "connect", [macAddress]);
     },
 
     // Android only - see http://goo.gl/1mFjZY
     connectInsecure: function (macAddress, success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "connectInsecure", [macAddress]);
+        cordova.exec(success, failure, "PhxTool", "connectInsecure", [macAddress]);
     },
 
     disconnect: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "disconnect", []);
+        cordova.exec(success, failure, "PhxTool", "disconnect", []);
     },
 
     // list bound devices
     list: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "list", []);
+        cordova.exec(success, failure, "PhxTool", "list", []);
     },
 
     isEnabled: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "isEnabled", []);
+        cordova.exec(success, failure, "PhxTool", "isEnabled", []);
     },
 
     isConnected: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "isConnected", []);
+        cordova.exec(success, failure, "PhxTool", "isConnected", []);
     },
 
     // the number of bytes of data available to read is passed to the success function
     available: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "available", []);
+        cordova.exec(success, failure, "PhxTool", "available", []);
     },
 
     // read all the data in the buffer
     read: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "read", []);
+        cordova.exec(success, failure, "PhxTool", "read", []);
     },
 	
 	readRawData: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "readRawData", []);
+        cordova.exec(success, failure, "PhxTool", "readRawData", []);
     },
 	
 
     // reads the data in the buffer up to and including the delimiter
     readUntil: function (delimiter, success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "readUntil", [delimiter]);
+        cordova.exec(success, failure, "PhxTool", "readUntil", [delimiter]);
     },
 
     // writes data to the bluetooth serial port
@@ -61,17 +61,17 @@ module.exports = {
             data = data.buffer;
         }
 
-        cordova.exec(success, failure, "BluetoothSerial", "write", [data]);
+        cordova.exec(success, failure, "PhxTool", "write", [data]);
     },
 
     // calls the success callback when new data is available
     subscribe: function (delimiter, success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "subscribe", [delimiter]);
+        cordova.exec(success, failure, "PhxTool", "subscribe", [delimiter]);
     },
 
     // removes data subscription
     unsubscribe: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "unsubscribe", []);
+        cordova.exec(success, failure, "PhxTool", "unsubscribe", []);
     },
 
     // calls the success callback when new data is available with an ArrayBuffer
@@ -87,53 +87,53 @@ module.exports = {
             }
             success(data);
         };
-        cordova.exec(successWrapper, failure, "BluetoothSerial", "subscribeRaw", []);
+        cordova.exec(successWrapper, failure, "PhxTool", "subscribeRaw", []);
     },
 
     // removes data subscription
     unsubscribeRawData: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "unsubscribeRaw", []);
+        cordova.exec(success, failure, "PhxTool", "unsubscribeRaw", []);
     },
 
     // clears the data buffer
     clear: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "clear", []);
+        cordova.exec(success, failure, "PhxTool", "clear", []);
     },
 
     // reads the RSSI of the *connected* peripherial
     readRSSI: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "readRSSI", []);
+        cordova.exec(success, failure, "PhxTool", "readRSSI", []);
     },
 
     showBluetoothSettings: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "showBluetoothSettings", []);
+        cordova.exec(success, failure, "PhxTool", "showBluetoothSettings", []);
     },
 
     enable: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "enable", []);
+        cordova.exec(success, failure, "PhxTool", "enable", []);
     },
 
     discoverUnpaired: function (success, failure) {
-        cordova.exec(success, failure, "BluetoothSerial", "discoverUnpaired", []);
+        cordova.exec(success, failure, "PhxTool", "discoverUnpaired", []);
     },
 
     setDeviceDiscoveredListener: function (notify) {
         if (typeof notify != 'function')
-            throw 'BluetoothSerial.setDeviceDiscoveredListener: Callback not a function';
+            throw 'PhxTool.setDeviceDiscoveredListener: Callback not a function';
 
-        cordova.exec(notify, null, "BluetoothSerial", "setDeviceDiscoveredListener", []);
+        cordova.exec(notify, null, "PhxTool", "setDeviceDiscoveredListener", []);
     },
 
     clearDeviceDiscoveredListener: function () {
-        cordova.exec(null, null, "BluetoothSerial", "clearDeviceDiscoveredListener", []);
+        cordova.exec(null, null, "PhxTool", "clearDeviceDiscoveredListener", []);
     },
 
     setName: function (newName) {
-        cordova.exec(null, null, "BluetoothSerial", "setName", [newName]);
+        cordova.exec(null, null, "PhxTool", "setName", [newName]);
     },
 
     setDiscoverable: function (discoverableDuration) {
-        cordova.exec(null, null, "BluetoothSerial", "setDiscoverable", [discoverableDuration]);
+        cordova.exec(null, null, "PhxTool", "setDiscoverable", [discoverableDuration]);
     }
 
 
